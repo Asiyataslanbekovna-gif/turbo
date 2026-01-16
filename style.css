@@ -12,3 +12,17 @@ color: #D4AF37;
 border-left: 4pх solid #8B0000;
 font-style: italic;
 }
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Твои собственные стили */
+body {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #2a7ae2;
+}
