@@ -23,3 +23,95 @@
 <a target="_blank" href="https://icons8.com/icon/7518/snowflake">Новый год</a> иконка от <a target="_blank" href="https://icons8.com">Icons8</a>
 </body>
 </html>
+</body
+<h2> 16 января , 2026</h2> 
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .task {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        strong {
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Текущая дата -->
+    <p><strong>Сегодня:</strong> <span id="current-date"></span></p>
+
+    <h1>Блог: Решение шифров Цезаря</h1>
+
+    <div class="task">
+        <h2>1. Определение ключей шифра Цезаря</h2>
+        <p><strong>а.</strong> Открытый текст: АПЕЛЬСИН → Шифротекст: САЦЬНВЩЮ</p>
+        <p>Ключ: <strong>2</strong></p>
+        <p><strong>б.</strong> Открытый текст: АБРИКОС → Шифротекст: ЫЬЛГЕЙМ</p>
+        <p>Ключ: <strong>30</strong> (эквивалентно сдвигу на –2)</p>
+    </div>
+
+    <div class="task">
+        <h2>2. Расшифровка сообщений (ключ неизвестен, 0 &lt; k &lt; 32)</h2>
+        <p><strong>а.</strong> Шифротекст: ФХНЗКЧ</p>
+        <p>Расшифровка при ключе <strong>k = 7</strong>: <strong>ЦВЕТОК</strong></p>
+        <p><strong>б.</strong> Шифротекст: ЦЩЕБФ</p>
+        <p>Расшифровка при ключе <strong>k = 4</strong>: <strong>ШУБА</strong></p>
+    </div>
+
+    <div class="task">
+        <h2>3. Шифрование фамилии с ключом 10</h2>
+        <p>Фамилия: <strong id="surname">ХАЖБИЕВА</strong></p>
+        <p>Зашифрованная фамилия: <strong id="encrypted-surname"></strong></p>
+    </div>
+
+    <script>
+        // Отображение текущей даты
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('ru-RU', options);
+
+        // Функция шифрования Цезаря для русского алфавита (32 буквы, без Ё)
+        function caesarCipher(text, shift) {
+            const alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+            let result = '';
+            for (let char of text.toUpperCase()) {
+                const index = alphabet.indexOf(char);
+                if (index !== -1) {
+                    const newIndex = (index + shift) % 32;
+                    result += alphabet[newIndex];
+                } else {
+                    result += char; // сохраняем символы, не входящие в алфавит
+                }
+            }
+            return result;
+        }
+
+        // Шифруем фамилию ХАЖБИЕВА с ключом 10
+        const surname = "ХАЖБИЕВА";
+        const encrypted = caesarCipher(surname, 10);
+        document.getElementById('encrypted-surname').textContent = encrypted;
+    </script>
+</body>
+</html>
