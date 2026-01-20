@@ -6,19 +6,3 @@ body{
 	padding: 10px 10px 10px 10px;
 	font-family: sans serif;
  }
----
-# Только это нужно в начале файла для Jekyll
----
-
-@import "{{ site.theme }}";
-
-/* Ваши собственные стили */
-body {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-a {
-  color: #d35400;
-}
-body { background-color: #e6f2ff; }
